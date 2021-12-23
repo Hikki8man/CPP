@@ -10,7 +10,10 @@ class Contact_list
 private:
     /* data */
 public:
-    Contact index[8];
+    Contact list[8];
+    int     contact_nb;
+
+    Contact *get_next_contact(void);
     Contact_list(void);
     ~Contact_list(void);
 };

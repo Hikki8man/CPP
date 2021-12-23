@@ -2,9 +2,14 @@
 
 Contact_list::Contact_list(void)
 {
-    std::cout << "Contact initialized" << std::endl;
+    this->contact_nb = 0;
 }
 
 Contact_list::~Contact_list()
 {
+}
+
+Contact *Contact_list::get_next_contact(void)
+{
+    return(&this->list[this->contact_nb++]);
 }
