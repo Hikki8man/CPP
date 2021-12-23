@@ -1,6 +1,6 @@
 #include <iostream>
 
-void    s_toupper(char *s)
+static void    str_toupper(char *s)
 {
     int i = -1;
 
@@ -18,7 +18,7 @@ int main(int ac, char **av)
     {
         while (av[i])
         {
-            s_toupper(av[i]);
+            str_toupper(av[i]);
             std::cout << av[i];
             i++;
             if (av[i])
