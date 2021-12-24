@@ -13,6 +13,8 @@ public:
     Contact list[8];
     int     contact_nb;
 
+    void    add_contact(void);
+    void    search(void);
     Contact *get_next_contact(void);
     Contact_list(void);
     ~Contact_list(void);
