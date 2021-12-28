@@ -8,16 +8,17 @@
 class Contact_list
 {
 private:
-    /* data */
+	/* data */
 public:
-    Contact list[8];
-    int     contact_nb;
+	Contact list[8];
+	int     contact_nb;
 
-    void    add_contact(void);
-    void    search(void);
-    Contact *get_next_contact(void);
-    Contact_list(void);
-    ~Contact_list(void);
+	void	add_contact(void);
+	void	search(void);
+	std::string 	reformat(std::string s);
+	Contact *get_next_contact(void);
+	Contact_list(void);
+	~Contact_list(void);
 };
 
 #endif
