@@ -8,9 +8,10 @@ int main(void)
      while (1)
     {
         std::cout << "Enter a new command : ";
-        // std::getline(std::cin, buf);
-        if (std::getline(std::cin, buf) == 0)
-            return 1;
+        std::getline(std::cin, buf);
+		// std::cin >> buf;
+        // if (std::getline(std::cin, buf) == 0)
+            // return 1;
         if (buf == "EXIT")
             break ;
         else if (buf == "ADD")

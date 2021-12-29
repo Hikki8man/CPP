@@ -56,16 +56,24 @@ void	Contact_list::search(void)
         std::cout << std::setw(10) << this->reformat(this->list[i].last_name) << "|";
         std::cout << std::setw(10) << this->reformat(this->list[i].nickname) << std::endl;
 	}
+	std::cout << "-------------------------------------------" << std::endl;
 	std::string	str;
 	int index;
 	while (true)
 	{
-		std::cout << "Entrer l'index du contact que vous souhaitez : " << std::endl;
-		std::getline(std::cin, str);
-		index = std::stoi(str);
-		if (index < 0 || index > this->contact_nb)
+		std::cout << "Entrer l'index du contact que vous souhaitez : ";
+		std::string buf;
+		std::getline(std::cin, buf);
+		if (std::cin.eof())
+			exit (1);
+		index = std::stoi(buf);
+		if (index < 0 || index >= this->contact_nb)
 			continue ;
-		std::cout << "Name : " << this->list[index].first_name << std::endl;
+		std::cout << "First name : " << this->list[index].first_name << std::endl;
+		std::cout << "Last name : " << this->list[index].last_name << std::endl;
+		std::cout << "Nickname : " << this->list[index].nickname << std::endl;
+		std::cout << "Phone number : " << this->list[index].phone_number << std::endl;
+		std::cout << "Darkest secret : " << this->list[index].secret << std::endl;
+		break ;
 	}
-
 }
