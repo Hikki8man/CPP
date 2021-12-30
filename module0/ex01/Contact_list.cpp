@@ -40,12 +40,12 @@ std::string 	Contact_list::reformat(std::string s)
 	return(s);
 }
 
-void	Contact_list::search(void)
+int	Contact_list::search(void)
 {
     if (this->contact_nb == 0)
     {
         std::cout << "Empty list" << std::endl;
-        return ;
+        return 0;
     }
     std::cout << "index     |first name|last name |nickname  " << std::endl;
 	std::cout << std::setfill(' ') << std::right;
@@ -65,8 +65,15 @@ void	Contact_list::search(void)
 		std::string buf;
 		std::getline(std::cin, buf);
 		if (std::cin.eof())
-			exit (1);
-		index = std::stoi(buf);
+			return 1;
+		try
+		{
+			index = std::stoi(buf);
+		}
+		catch (...)
+		{
+			continue ;
+		}
 		if (index < 0 || index >= this->contact_nb)
 			continue ;
 		std::cout << "First name : " << this->list[index].first_name << std::endl;
@@ -74,6 +81,6 @@ void	Contact_list::search(void)
 		std::cout << "Nickname : " << this->list[index].nickname << std::endl;
 		std::cout << "Phone number : " << this->list[index].phone_number << std::endl;
 		std::cout << "Darkest secret : " << this->list[index].secret << std::endl;
-		break ;
+		return 0;
 	}
 }

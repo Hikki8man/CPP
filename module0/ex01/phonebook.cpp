@@ -9,9 +9,8 @@ int main(void)
     {
         std::cout << "Enter a new command : ";
         std::getline(std::cin, buf);
-		// std::cin >> buf;
-        // if (std::getline(std::cin, buf) == 0)
-            // return 1;
+		if (std::cin.eof())
+			break ;
         if (buf == "EXIT")
             break ;
         else if (buf == "ADD")
@@ -23,8 +22,10 @@ int main(void)
         }
         else if (buf == "SEARCH")
         {
-            phone_book.search();
+        	if (phone_book.search() == 1)
+				break ;
         }
     }
+	std::cout << "Bye bye"<< std::endl;
     return 0;
 }

@@ -14,7 +14,7 @@ public:
 	int     contact_nb;
 
 	void	add_contact(void);
-	void	search(void);
+	int		search(void);
 	std::string 	reformat(std::string s);
 	Contact *get_next_contact(void);
 	Contact_list(void);
