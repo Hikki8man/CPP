@@ -1,11 +1,9 @@
-NAME	=	phonebook
+NAME	=	account
 
-SRC		=	main.cpp		\
-			phonebook.cpp	\
-			Contact.cpp
+SRC		=	Account.cpp	/
+			test.cpp
 
-INC		=	Contact_list.hpp	\
-			Contact.hpp
+INC		=	Account.hpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
