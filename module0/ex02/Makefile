@@ -1,6 +1,6 @@
 NAME	=	account
 
-SRC		=	Account.cpp	/
+SRC		=	Account.cpp	\
 			test.cpp
 
 INC		=	Account.hpp
