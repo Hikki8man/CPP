@@ -1,11 +1,12 @@
 #include <iostream>
 
-static void    str_toupper(char *s)
+static char	*str_toupper(char *s)
 {
     int i = -1;
 
     while (s[++i])
         s[i] = std::toupper(s[i]);
+	return (s);
 }
 
 int main(int ac, char **av)
@@ -18,11 +19,8 @@ int main(int ac, char **av)
     {
         while (av[i])
         {
-            str_toupper(av[i]);
-            std::cout << av[i];
+            std::cout << str_toupper(av[i]);
             i++;
-            if (av[i])
-                std::cout << ' ';
         }
         std::cout << std::endl;
     }
