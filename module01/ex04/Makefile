@@ -1,11 +1,8 @@
-NAME	=	BraiiiiiiinnnzzzZ
+NAME	=	replace
 
-SRC		=	Zombie.cpp		\
-			main.cpp		\
-			newZombie.cpp	\
-			randomChump.cpp
+SRC		=	main.cpp		
 
-INC		=	Zombie.hpp
+INC		=
 
 OBJ		=	$(SRC:.cpp=.o)
 

@@ -1,11 +1,6 @@
-NAME	=	BraiiiiiiinnnzzzZ
+NAME	=	HI_THIS_IS_BRAIN
 
-SRC		=	Zombie.cpp		\
-			main.cpp		\
-			newZombie.cpp	\
-			randomChump.cpp
-
-INC		=	Zombie.hpp
+SRC		=	main.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
@@ -15,7 +10,7 @@ CC		=	clang++
 
 all		:	$(NAME)
 
-%.o:	%.cpp $(INC)
+%.o:	%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME)	:	$(OBJ)

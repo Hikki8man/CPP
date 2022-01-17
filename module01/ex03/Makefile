@@ -1,11 +1,13 @@
-NAME	=	BraiiiiiiinnnzzzZ
+NAME	=	Unnecessary_violence
 
-SRC		=	Zombie.cpp		\
-			main.cpp		\
-			newZombie.cpp	\
-			randomChump.cpp
+SRC		=	main.cpp		\
+			Weapon.cpp		\
+			HumanA.cpp		\
+			HumanB.cpp
 
-INC		=	Zombie.hpp
+INC		=	Weapon.hpp		\
+			HumanA.hpp		\
+			HumanB.hpp
 
 OBJ		=	$(SRC:.cpp=.o)
 

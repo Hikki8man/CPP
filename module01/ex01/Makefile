@@ -1,9 +1,8 @@
-NAME	=	BraiiiiiiinnnzzzZ
+NAME	=	Moar_brainz
 
 SRC		=	Zombie.cpp		\
 			main.cpp		\
-			newZombie.cpp	\
-			randomChump.cpp
+			ZombieHorde.cpp
 
 INC		=	Zombie.hpp
 
