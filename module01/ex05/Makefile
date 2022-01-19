@@ -1,7 +1,10 @@
-NAME	=	replace
+NAME	=	karen2.0
 
-SRC		=	main.cpp		
+SRC		=	main.cpp		\
+			Karen.cpp
 
+INC		=	Karen.hpp
+			
 OBJ		=	$(SRC:.cpp=.o)
 
 CFLAGS	= 	-Wall -Werror -Wextra -std=c++98
@@ -10,7 +13,7 @@ CC		=	clang++
 
 all		:	$(NAME)
 
-%.o:	%.cpp
+%.o:	%.cpp $(INC)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME)	:	$(OBJ)

@@ -1,6 +1,11 @@
-NAME	=	replace
+NAME	=	phonebook
 
-SRC		=	main.cpp		
+SRC		=	main.cpp		\
+			phonebook.cpp	\
+			Contact.cpp
+
+INC		=	Contact_list.hpp	\
+			Contact.hpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
@@ -10,7 +15,7 @@ CC		=	clang++
 
 all		:	$(NAME)
 
-%.o:	%.cpp
+%.o:	%.cpp $(INC)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME)	:	$(OBJ)

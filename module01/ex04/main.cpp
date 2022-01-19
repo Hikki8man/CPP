@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
 static void	findAndReplace(std::string& line, std::string toFind, std::string sub)
 {
@@ -28,9 +29,7 @@ int	main(int ac, char **av)
 		return 2;
 	}
 
-	std::string		outFilename = av[1];
-	outFilename += ".replace";
-	std::ofstream	outFile(outFilename);
+	std::ofstream	outFile(std::string(av[1]) + ".replace");
 
 	while (true)
 	{
@@ -41,8 +40,9 @@ int	main(int ac, char **av)
 			break ;
 		else
 			outFile << std::endl;
-		
 	}
+	inFile.close();
+	outFile.close();
 
 	return 0;
 }

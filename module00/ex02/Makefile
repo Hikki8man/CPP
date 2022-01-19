@@ -1,6 +1,9 @@
-NAME	=	replace
+NAME	=	account
 
-SRC		=	main.cpp		
+SRC		=	Account.cpp	\
+			test.cpp
+
+INC		=	Account.hpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
@@ -10,7 +13,7 @@ CC		=	clang++
 
 all		:	$(NAME)
 
-%.o:	%.cpp
+%.o:	%.cpp $(INC)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME)	:	$(OBJ)
