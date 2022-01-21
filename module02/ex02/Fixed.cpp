@@ -47,6 +47,20 @@ int		Fixed::toInt(void) const
 	return this->_n >> this->_bits;
 }
 
+Fixed & min(Fixed & a, Fixed & b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+Fixed & max(Fixed & a, Fixed & b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
+
 /*----------Operator overload----------*/
 
 std::ostream & operator<<(std::ostream & o, Fixed const & rhs)
@@ -110,9 +124,39 @@ Fixed	Fixed::operator+(Fixed const & rhs) const
 	return Fixed(this->_n + rhs._n);
 }
 
+Fixed &	Fixed::operator++()
+{
+	this->_n++;
+	
+	return *this;
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed tmp = *this;
+	++*this;
+	
+	return tmp;
+}
+
 Fixed	Fixed::operator-(Fixed const & rhs) const
 {
 	return Fixed(this->_n - rhs._n);
+}
+
+Fixed &	Fixed::operator--()
+{
+	this->_n--;
+	
+	return *this;
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed tmp = *this;
+	--*this;
+	
+	return tmp;
 }
 
 Fixed	Fixed::operator*(Fixed const & rhs) const
