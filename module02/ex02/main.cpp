@@ -22,7 +22,7 @@ int main(void)
 	std::cout << std::endl;
 
 	{
-		Fixed a(10), b(10);
+		Fixed a(0.5f), b(2);
 
 		if (a <= b)
 			std::cout << a << " is superior or equal to " << b << std::endl;
@@ -32,18 +32,21 @@ int main(void)
 
 		std::cout << "c = " << c.getRawBits() << std::endl;
 		c = a + b;
-		std::cout << "a + b = " << a + b << std::endl;
-		std::cout << "c = " << c.getRawBits() << std::endl;
+		std::cout << "a + b = " << (a + b) << std::endl;
+		std::cout << "c = " << c << std::endl;
 	}
 
 	std::cout << std::endl;
 
 	{
 		Fixed a;
-
 		Fixed const b(Fixed(5.05f) * Fixed(2));
+		Fixed c(1);
+
 		std::cout << a << std::endl;
+		// std::cout << a + c << std::endl;
 		std::cout << ++a << std::endl;
+		// std::cout << "raw bit = " << a.getRawBits() << std::endl;
 		std::cout << a << std::endl;
 		std::cout << a++ << std::endl;
 		std::cout << a << std::endl;

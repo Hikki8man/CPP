@@ -6,7 +6,7 @@
 class Fixed
 {
 private:
-	int			_n;
+	int			_rawNumber;
 	static int	_bits;
 public:
 	Fixed();

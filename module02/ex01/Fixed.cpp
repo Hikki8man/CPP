@@ -2,7 +2,7 @@
 
 int const Fixed::_bits = 8;
 
-Fixed::Fixed() : _n(0)
+Fixed::Fixed() : _rawNumber(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -18,12 +18,12 @@ Fixed::Fixed(Fixed const & src)
 	*this = src;
 }
 
-Fixed::Fixed(int const n) : _n(n << _bits)
+Fixed::Fixed(int const n) : _rawNumber(n << _bits)
 {
 	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(float const n) : _n(std::roundf(n * (1 << _bits)))
+Fixed::Fixed(float const n) : _rawNumber(std::roundf(n * (1 << _bits)))
 {
 	std::cout << "Float constructor called" << std::endl;
 }
@@ -31,29 +31,29 @@ Fixed::Fixed(float const n) : _n(std::roundf(n * (1 << _bits)))
 int		Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBit member function called" << std::endl;
-	return this->_n;
+	return this->_rawNumber;
 }
 
 void	Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBit member function called" << std::endl;
-	this->_n = raw;
+	this->_rawNumber = raw;
 }
 
 float	Fixed::toFloat(void) const
 {
-	return (float)this->_n / (1 << this->_bits);
+	return (float)this->_rawNumber / (1 << this->_bits);
 }
 
 int		Fixed::toInt(void) const
 {
-	return this->_n >> this->_bits;
+	return this->_rawNumber >> this->_bits;
 }
 
 Fixed & Fixed::operator=(Fixed const & rhs)
 {
 	std::cout << "Assignation member called" << std::endl;
-	this->_n = rhs._n;
+	this->_rawNumber = rhs._rawNumber;
 
 	return *this;
 }

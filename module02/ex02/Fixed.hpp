@@ -7,7 +7,7 @@
 class Fixed
 {
 private:
-	int					_n;
+	int					_rawNumber;
 	static const int	_bits;
 public:
 	Fixed();
@@ -22,8 +22,10 @@ public:
 	float	toFloat(void) const;
 	int		toInt(void) const;
 
-	static Fixed & min(Fixed const & a, Fixed const & b);
-	static Fixed & max(Fixed const & a, Fixed const & b);
+	// static Fixed & min(Fixed const & a, Fixed const & b);
+	// static Fixed & min(Fixed const & rhs);
+	// static Fixed & max(Fixed const & a, Fixed const & b);
+	// static Fixed & max(Fixed const & rhs);
 
 	bool	operator>(Fixed const & rhs) const;
 	bool	operator>=(Fixed const & rhs) const;

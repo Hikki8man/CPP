@@ -7,7 +7,7 @@
 class Fixed
 {
 private:
-	int					_n;
+	int					_rawNumber;
 	static const int	_bits;
 public:
 	Fixed();
