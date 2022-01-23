@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : _name(name)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _energy(10), _attackDamage(0)
 {
 	std::cout << "Constructor called" << std::endl;
 }
@@ -32,8 +32,10 @@ void	ClapTrap::attack(std::string const & target)
 	{
 		this->_energy--;
 		std::cout << "ClapTrap " << this->_name << " attacks " << target
-		<< ", causing " << this->_attackDamage << "points of damages !" << std::endl;
+		<< ", causing " << this->_attackDamage << " points of damages !" << std::endl;
 	}
+	else if (!this->_energy)
+		std::cout << "ClapTrap " << this->_name << " is out of energy !" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -55,4 +57,6 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << this->_name << " repaired itself with " << amount
 		<< "points and now have " << this->_hp << " hp" << std::endl;
 	}
+	else if (!this->_energy)
+		std::cout << "ClapTrap " << this->_name << " is out of energy !" << std::endl;
 }
