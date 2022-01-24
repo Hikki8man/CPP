@@ -22,10 +22,10 @@ public:
 	float	toFloat(void) const;
 	int		toInt(void) const;
 
-	// static Fixed & min(Fixed const & a, Fixed const & b);
-	// static Fixed & min(Fixed const & rhs);
-	// static Fixed & max(Fixed const & a, Fixed const & b);
-	// static Fixed & max(Fixed const & rhs);
+	static Fixed & min(Fixed & lhs, Fixed & rhs);
+	static Fixed const & min(Fixed const & lhs, Fixed const & rhs);
+	static Fixed & max(Fixed & lhs, Fixed & rhs);
+	static Fixed const & max(Fixed const & lhs, Fixed const & rhs);
 
 	bool	operator>(Fixed const & rhs) const;
 	bool	operator>=(Fixed const & rhs) const;

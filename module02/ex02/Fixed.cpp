@@ -47,25 +47,32 @@ int		Fixed::toInt(void) const
 	return this->_rawNumber >> this->_bits;
 }
 
-Fixed & min(Fixed & a, Fixed & b)
+Fixed & Fixed::min(Fixed & lhs, Fixed & rhs)
 {
-	if (a < b)
-		return a;
-	return b;
+	if (lhs < rhs)
+		return lhs;
+	return rhs;
 }
 
-// Fixed & min(Fixed & rhs)
-// {
-// 	if (this->_b < rhs.getRawBits())
-// 		return *this;
-// 	return rhs;
-// }
-
-Fixed & max(Fixed & a, Fixed & b)
+Fixed const & Fixed::min(Fixed const & lhs, Fixed const & rhs)
 {
-	if (a > b)
-		return a;
-	return b;
+	if (lhs < rhs)
+		return lhs;
+	return rhs;
+}
+
+Fixed & Fixed::max(Fixed & lhs, Fixed & rhs)
+{
+	if (lhs > rhs)
+		return lhs;
+	return rhs;
+}
+
+Fixed const & Fixed::max(Fixed const & lhs, Fixed const & rhs)
+{
+	if (lhs > rhs)
+		return lhs;
+	return rhs;
 }
 
 /*----------Operator overload----------*/
