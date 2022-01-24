@@ -5,7 +5,7 @@
 
 class ScavTrap : public ClapTrap
 {
-private:
+protected:
 	ScavTrap();
 public:
 	ScavTrap(std::string name);
