@@ -10,5 +10,6 @@ int main(void)
 	clap.beRepaired(10);
 	clap.beRepaired(10);
 	clap.attack("dsa");
+
 	return 0;
 }

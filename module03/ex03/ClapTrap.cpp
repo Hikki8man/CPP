@@ -2,18 +2,18 @@
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _energy(10), _attackDamage(0)
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "ClapTrap constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & src)
 {
-	std::cout << "Constructor by copy called" << std::endl;
+	std::cout << "ClapTrap constructor by copy called" << std::endl;
 	*this = src;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap destructor called" << std::endl;
 }
 
 ClapTrap & ClapTrap::operator=(ClapTrap const & rhs)
@@ -55,7 +55,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		this->_energy--;
 		this->_hp += amount;
 		std::cout << "ClapTrap " << this->_name << " repaired itself with " << amount
-		<< " points and now have " << this->_hp << " hp" << std::endl;
+		<< " points and now have " << this->_hp << " hp and " << this->_energy << " energy points left" << std::endl;
 	}
 	else if (!this->_energy)
 		std::cout << "ClapTrap " << this->_name << " is out of energy !" << std::endl;
