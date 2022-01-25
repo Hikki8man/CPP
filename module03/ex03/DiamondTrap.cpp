@@ -16,9 +16,9 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), _nam
 	 this->_attackDamage = 30;
 }
 
-DiamondTrap::~DiamondTrap()
+DiamondTrap::DiamondTrap(DiamondTrap const & src)
 {
-	std::cout << "\033[0;34mDiamond destructor called\033[0;37m" << std::endl;
+	*this = src;
 }
 
 DiamondTrap & DiamondTrap::operator=(DiamondTrap const & rhs)
@@ -27,6 +27,11 @@ DiamondTrap & DiamondTrap::operator=(DiamondTrap const & rhs)
 	this->_name = rhs._name;
 
 	return *this;
+}
+
+DiamondTrap::~DiamondTrap()
+{
+	std::cout << "\033[0;34mDiamond destructor called\033[0;37m" << std::endl;
 }
 
 void	DiamondTrap::attack(std::string const & target)

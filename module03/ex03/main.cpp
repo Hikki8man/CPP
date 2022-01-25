@@ -15,6 +15,15 @@ int main(void)
 	a.highFivesGuys();
 	a.whoAmI();
 
+	DiamondTrap b(a);
+
+	b.attack("un bambou");
+	b.takeDamage(40);
+	b.beRepaired(10);
+	b.guardGate();
+	b.highFivesGuys();
+	b.whoAmI();
+
 
 	return 0;
 }
