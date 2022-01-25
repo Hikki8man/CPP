@@ -1,24 +1,24 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : _name("DefaultName"), _hp(10), _energy(10), _attackDamage(0)
 {
-	std::cout << "Default ClapTrap constructor called" << std::endl;
+	std::cout << "\033[0;31mDefault ClapTrap constructor called\033[0;37m" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _energy(10), _attackDamage(0)
 {
-	std::cout << "ClapTrap constructor called" << std::endl;
+	std::cout << "\033[0;31mClapTrap constructor called\033[0;37m" << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & src)
 {
-	std::cout << "ClapTrap constructor by copy called" << std::endl;
+	std::cout << "\033[0;31mClapTrap constructor by copy called\033[0;37m" << std::endl;
 	*this = src;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap destructor called" << std::endl;
+	std::cout << "\033[0;31mClapTrap destructor called\033[0;37m" << std::endl;
 }
 
 ClapTrap & ClapTrap::operator=(ClapTrap const & rhs)
@@ -31,7 +31,7 @@ ClapTrap & ClapTrap::operator=(ClapTrap const & rhs)
 	return *this;
 }
 
-void	ClapTrap::attack(std::string const & target)
+void	ClapTrap::attack(std::string const & target)  
 {
 	if (this->_energy && this->_hp > 0)
 	{

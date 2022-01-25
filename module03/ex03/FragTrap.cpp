@@ -2,12 +2,16 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
-	std::cout << "Default FragTrap constructor called" << std::endl;
+	std::cout << "\033[0;32mDefault FragTrap constructor called\033[0;37m" << std::endl;
+
+	this->_hp = 100;
+	this->_energy = 100;
+	this->_attackDamage = 30;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "FragTrap constructor called" << std::endl;
+	std::cout << "\033[0;32mFragTrap constructor called\033[0;37m" << std::endl;
 
 	this->_hp = 100;
 	this->_energy = 100;
@@ -16,7 +20,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 
 FragTrap::FragTrap(FragTrap const & src) : ClapTrap(src)
 {
-	std::cout << "FragTrap constructor by copy called" << std::endl;
+	std::cout << "\033[0;32mFragTrap constructor by copy called\033[0;37m" << std::endl;
 	*this = src;
 }
 
@@ -29,11 +33,11 @@ FragTrap & FragTrap::operator=(FragTrap const & rhs)
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap destructor called" << std::endl;
+	std::cout << "\033[0;32mFragTrap destructor called\033[0;37m" << std::endl;
 }
 
 
-void	FragTrap::highFivesGuys(void)
+void	FragTrap::highFivesGuys(void) const
 {
 	std::cout << "Hey let's high fives guys !" << std::endl;
 }

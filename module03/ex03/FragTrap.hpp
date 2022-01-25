@@ -3,7 +3,7 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 protected:
 	FragTrap();
@@ -13,7 +13,7 @@ public:
 	FragTrap & operator=(FragTrap const & rhs);
 	~FragTrap();
 
-	void	highFivesGuys(void);
+	void	highFivesGuys(void) const;
 };
 
 #endif
