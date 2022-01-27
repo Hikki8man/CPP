@@ -15,7 +15,7 @@ OBJ		=	$(SRC:.cpp=.o)
 
 CFLAGS	= 	-Wall -Werror -Wextra -std=c++98
 
-CC		=	clang++
+CC		=	c++
 
 all		:	$(NAME)
 

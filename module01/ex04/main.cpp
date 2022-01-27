@@ -28,15 +28,15 @@ int	main(int ac, char **av)
 	std::string		line;
 
 	if (inFile.good() == false) {
-		std::cerr << "Error: file doesn't exist." << std::endl;
+		std::cerr << "Error: infile not good." << std::endl;
 		return 2;
 	}
 
 	std::ofstream	outFile(std::string(av[1]) + ".replace");
 
 	if (outFile.good() == false) {
-		std::cerr << "Error: file not good." << std::endl;
-		return 2;
+		std::cerr << "Error: outfile not good." << std::endl;
+		return 3;
 	}
 
 	while (true)

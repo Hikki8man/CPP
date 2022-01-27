@@ -39,6 +39,7 @@ Brain &				Brain::operator=( Brain const & rhs )
 		i++;
 	}
 
+
 	return *this;
 }
 
