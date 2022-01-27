@@ -2,7 +2,6 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
-#include "Brain.hpp"
 
 class Dog : public Animal
 {
@@ -13,11 +12,6 @@ public:
 	~Dog();
 
 	void	makeSound(void) const;
-	void 	printIdeas(void) const;
-	Brain & getBrain();
-
-protected:
-	Brain *_brain;
 };
 
 #endif

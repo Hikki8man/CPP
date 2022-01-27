@@ -13,7 +13,7 @@ public:
 	FragTrap & operator=(FragTrap const & rhs);
 	~FragTrap();
 
-	void	highFivesGuys(void);
+	void	highFivesGuys(void) const;
 };
 
 #endif

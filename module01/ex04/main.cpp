@@ -4,13 +4,16 @@
 
 static void	findAndReplace(std::string& line, std::string toFind, std::string sub)
 {
-	std::size_t	pos = line.find(toFind);
+	std::size_t	pos = 0;
+
+	pos = line.find(toFind, pos);
 
 	while (pos != std::string::npos)
 	{
 		line.erase(pos, toFind.length());
 		line.insert(pos, sub);
-		pos = line.find(toFind);
+		pos += sub.length();
+		pos = line.find(toFind, pos);
 	}
 }
 
@@ -30,6 +33,11 @@ int	main(int ac, char **av)
 	}
 
 	std::ofstream	outFile(std::string(av[1]) + ".replace");
+
+	if (outFile.good() == false) {
+		std::cerr << "Error: file not good." << std::endl;
+		return 2;
+	}
 
 	while (true)
 	{

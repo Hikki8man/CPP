@@ -30,10 +30,15 @@ Brain::~Brain()
 
 Brain &				Brain::operator=( Brain const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	int i = 0;
+
+	while (rhs._ideas[i] != "")
+	{
+		this->_ideas[i] = rhs._ideas[i];
+		i++;
+	}
+
+
 	return *this;
 }
 
@@ -46,14 +51,10 @@ Brain &				Brain::operator=( Brain const & rhs )
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-void	Brain::setIdeas(std::string const & idea)
+void	Brain::addIdeas(std::string const & idea)
 {
 	int i = 0;
-	if (idea == "")
-	{
-		std::cout << "Not a good idea" << std::endl;
-		return ;
-	}
+
 	while (this->_ideas[i] != "") {
 		i++;
 	}
@@ -61,6 +62,7 @@ void	Brain::setIdeas(std::string const & idea)
 		std::cout << "Brain is full" << std::endl;
 	else
 		this->_ideas[i] = idea;
+	
 }
 
 std::string const Brain::getIdeas(int n) const

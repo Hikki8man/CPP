@@ -33,7 +33,7 @@ FragTrap::~FragTrap()
 }
 
 
-void	FragTrap::highFivesGuys(void)
+void	FragTrap::highFivesGuys(void) const
 {
 	std::cout << "Hey let's high fives guys !" << std::endl;
 }

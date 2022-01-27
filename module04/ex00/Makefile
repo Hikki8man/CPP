@@ -1,15 +1,17 @@
-NAME	=	DiamondTrap
+NAME	=	polymorphism
 
-SRC		=	ClapTrap.cpp	\
-			ScavTrap.cpp	\
-			FragTrap.cpp	\
-			DiamondTrap.cpp	\
-			main.cpp
+SRC		=	main.cpp	\
+			Animal.cpp	\
+			Cat.cpp	\
+			Dog.cpp	\
+			WrongAnimal.cpp \
+			WrongCat.cpp
 
-INC		=	ClapTrap.hpp	\
-			ScavTrap.hpp	\
-			FragTrap.hpp	\
-			DiamondTrap.hpp
+INC		=	Animal.hpp	\
+			Dog.hpp	\
+			Cat.hpp	\
+			WrongAnimal.hpp	\
+			WrongCat.hpp
 
 OBJ		=	$(SRC:.cpp=.o)
 

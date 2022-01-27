@@ -44,7 +44,7 @@ void	ScavTrap::attack(std::string const & target)
 		std::cout << "ScavTrap " << this->_name << " is out of energy !" << std::endl;
 }
 
-void	ScavTrap::guardGate()
+void	ScavTrap::guardGate() const
 {
 	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode." << std::endl;
 }
