@@ -6,6 +6,7 @@
 
 Ice::Ice()
 {
+	this->_type = "ice";
 }
 
 Ice::Ice( const Ice & src )
@@ -46,6 +47,15 @@ std::ostream &			operator<<( std::ostream & o, Ice const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
+void	Ice::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+}
+
+AMateria*	Ice::clone() const
+{
+	return new Ice();
+}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------

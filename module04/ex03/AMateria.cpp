@@ -38,14 +38,6 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 	//}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, AMateria const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
