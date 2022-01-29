@@ -11,6 +11,7 @@ Cure::Cure()
 
 Cure::Cure( const Cure & src )
 {
+	*this = src;
 }
 
 
@@ -29,10 +30,9 @@ Cure::~Cure()
 
 Cure &				Cure::operator=( Cure const & rhs )
 {
-	this->_type = rhs._type;
+	AMateria::operator=(rhs);
 	return *this;
 }
-
 
 
 /*
@@ -48,10 +48,5 @@ AMateria*	Cure::clone() const
 {
 	return new Cure();
 }
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
 
 /* ************************************************************************** */

@@ -11,6 +11,7 @@ Ice::Ice()
 
 Ice::Ice( const Ice & src )
 {
+	*this = src;
 }
 
 
@@ -29,19 +30,9 @@ Ice::~Ice()
 
 Ice &				Ice::operator=( Ice const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	AMateria::operator=(rhs);
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Ice const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -56,10 +47,5 @@ AMateria*	Ice::clone() const
 {
 	return new Ice();
 }
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
 
 /* ************************************************************************** */

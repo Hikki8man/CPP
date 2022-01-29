@@ -3,7 +3,7 @@
 
 #include "IMateriaSource.hpp"
 
-class MateriaSource
+class MateriaSource : public IMateriaSource
 {
 private:
 	static const int _maxMateria = 4;

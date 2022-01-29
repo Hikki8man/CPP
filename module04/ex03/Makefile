@@ -5,7 +5,7 @@ SRC		=	main.cpp			\
 			IMateriaSource.cpp	\
 			ICharacter.cpp		\
 			MateriaSource.cpp 	\
-			Mage.cpp			\
+			Character.cpp		\
 			Ice.cpp				\
 			Cure.cpp
 
@@ -15,7 +15,7 @@ INC		=	AMateria.hpp		\
 			IMateriaSource.hpp	\
 			ICharacter.hpp		\
 			MateriaSource.hpp	\
-			Mage.hpp			\
+			Character.hpp		\
 			Ice.hpp				\
 			Cure.hpp
 

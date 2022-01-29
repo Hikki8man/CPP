@@ -18,13 +18,7 @@ Dog::Dog(Dog const & src)
 
 Dog & Dog::operator=(Dog const & rhs)
 {
-	int i = 0;
-
-	while (i < 100)
-	{
-		this->_brain->addIdeas(rhs._brain->getIdeas(i));
-		i++;
-	}
+	*this->_brain = *rhs._brain;
 	this->_type = rhs._type;
 
 	return *this;

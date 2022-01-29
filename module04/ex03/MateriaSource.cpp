@@ -10,19 +10,24 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource(MateriaSource const & src)
 {
+	*this = src;
 }
 
 /* DESTRUCTOR */
 
 MateriaSource::~MateriaSource()
 {
+	for (int i = 0; i < _maxMateria; i++)
+		delete _materiaT[i];
 }
 
 /* OPERATOR OVERLOAD */
 
 MateriaSource& MateriaSource::operator=(MateriaSource const & rhs)
 {
-	//deep?
+	for (int i = 0; i < _maxMateria; i++)
+		_materiaT[i] = rhs._materiaT[i]->clone();
+	return *this;
 }
 
 /* METHOD */

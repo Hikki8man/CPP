@@ -1,9 +1,9 @@
-#ifndef MAGE_HPP
-# define MAGE_HPP
+#ifndef Character_HPP
+# define Character_HPP
 
 # include "ICharacter.hpp" 
 
-class Mage : public ICharacter
+class Character : public ICharacter
 {
 protected:
 	std::string _name;
@@ -11,13 +11,14 @@ protected:
 	AMateria*	_inv[_invSize];
 
 public:
-	Mage();
-	Mage(std::string const & name);
-	Mage(Mage const & src);
-	~Mage();
+	Character();
+	Character(std::string const & name);
+	Character(Character const & src);
+	~Character();
 
-	Mage & operator=(Mage const & rhs); //todo : deep cpy
+	Character & operator=(Character const & rhs);
 
+	using ICharacter::equip;
 	std::string const & getName(void) const;
 	void	equip(AMateria* m);
 	void	unequip(int idx);

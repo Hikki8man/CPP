@@ -33,7 +33,7 @@ Brain &				Brain::operator=( Brain const & rhs )
 {
 	int i = 0;
 
-	while (rhs._ideas[i] != "")
+	while (i < 100)
 	{
 		this->_ideas[i] = rhs._ideas[i];
 		i++;

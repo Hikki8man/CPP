@@ -1,28 +1,27 @@
-# include "Mage.hpp"
-
+# include "Character.hpp"
 
 /* CONSTRUTOR */
 
-Mage::Mage() : _name("Jaina")
+Character::Character() : _name("Jaina")
 {
 	for (int i = 0; i < _invSize; i++)
 		_inv[i] = NULL;
 }
 
-Mage::Mage(std::string const & name) : _name(name)
+Character::Character(std::string const & name) : _name(name)
 {
 	for (int i = 0; i < _invSize; i++)
 		_inv[i] = NULL;
 }
 
-Mage::Mage(Mage const & src)
+Character::Character(Character const & src)
 {
 	*this = src;
 }
 
 /* DESTRUCTOR */
 
-Mage::~Mage()
+Character::~Character()
 {
 	for (int i = 0; i < _invSize; i++)
 	{
@@ -33,25 +32,28 @@ Mage::~Mage()
 
 /* OPERATOR OVERLOAD */
 
-Mage & Mage::operator=(Mage const & rhs)
+Character & Character::operator=(Character const & rhs)
 {
-	//clone?
 	this->_name = rhs._name;
 	for (int i = 0; i < _invSize; i++)
+	{
+		if (this->_inv[i] != NULL)
+			delete this->_inv[i];
 		this->_inv[i] = rhs._inv[i];
+	}
 	return *this;
 }
 
 /* ACCESSOR */
 
-std::string const & Mage::getName(void) const
+std::string const & Character::getName(void) const
 {
 	return this->_name;
 }
 
 /* METHOD */
 
-void	Mage::equip(AMateria* m)
+void	Character::equip(AMateria* m)
 {
 	if (m == NULL)
 	{
@@ -73,7 +75,7 @@ void	Mage::equip(AMateria* m)
 	std::cout << "Your inventary is full !" << std::endl;
 }
 
-void	Mage::unequip(int idx)
+void	Character::unequip(int idx)
 {
 	/*Save address before doing that*/
 	if (idx >= 0 && idx < this->_invSize && this->_inv[idx] != NULL)
@@ -88,10 +90,12 @@ void	Mage::unequip(int idx)
 	std::cout << "There is nothing at this slot." << std::endl;
 }
 
-void	Mage::use(int idx, ICharacter& target)
+void	Character::use(int idx, ICharacter& target)
 {
 	if (idx >= 0 && idx < this->_invSize && this->_inv[idx] != NULL)
 	{
 		this->_inv[idx]->use(target);
+		return ;
 	}
+	std::cout << "There is nothing at this slot." << std::endl;
 }
