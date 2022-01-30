@@ -57,7 +57,7 @@ size_t	Bureaucrat::getGrade() const
 
 /* METHOD */
 
-void	Bureaucrat::rankUp()
+void		Bureaucrat::rankUp()
 {
 	if (_grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
@@ -65,10 +65,28 @@ void	Bureaucrat::rankUp()
 		_grade--;
 }
 
-void	Bureaucrat::rankDown()
+void		Bureaucrat::rankDown()
 {
 	if (_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
 	else
 		_grade++;
+}
+
+void	Bureaucrat::signForm(Form & form)
+{
+	if (form.getSignature() == true)
+	{
+		std::cout << form.getName() << " is already signed." << std::endl;
+		return ;
+	}
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->getName() << " signs " << form.getName() << std::endl;
+	}
+	catch(const Form::GradeToLowException& e)
+	{
+		std::cout << this->getName() << " cannot sign because his " << e.what() << std::endl;
+	}
 }
