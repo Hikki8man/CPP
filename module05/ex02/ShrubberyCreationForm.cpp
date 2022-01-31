@@ -13,7 +13,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target) : Form(
 }
 
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src )
+ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src ) : Form(src)
 {
 	*this = src;
 }
@@ -42,11 +42,13 @@ ShrubberyCreationForm &				ShrubberyCreationForm::operator=( ShrubberyCreationFo
 	return *this;
 }
 
-// std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i )
-// {
-// 	o << ;
-// 	return o;
-// }
+std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i )
+{
+	
+	o << "Form name: " << i.getName() << " | Grade to be signed: " << i.getGradeToSign() << " | grade to be executed: " << i.getGradeToExe()
+	<< " | Signed: " << i.getSignature() << " | Target: " << i.getTarget();
+	return o;
+}
 
 
 /*
@@ -55,7 +57,7 @@ ShrubberyCreationForm &				ShrubberyCreationForm::operator=( ShrubberyCreationFo
 
 void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	std::ofstream	outFile(this->_target + "_shrubbery");
+	std::ofstream	outFile((this->_target + "_shrubbery").c_str());
 	if (outFile.good() == false)
 	{
 		std::cout << "Error: Outfile problem occured" << std::endl;
@@ -89,5 +91,9 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+std::string	ShrubberyCreationForm::getTarget() const
+{
+	return _target;
+}
 
 /* ************************************************************************** */

@@ -39,10 +39,12 @@ public:
 	};
 	std::string	getName() const;
 	size_t		getGrade() const;
+	
 
 	void		rankUp();
 	void		rankDown();
 	void		signForm(Form & form);
+	void		executeForm(Form const & form);
 };
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs);

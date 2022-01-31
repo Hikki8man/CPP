@@ -18,10 +18,11 @@ class ShrubberyCreationForm : public Form
 		ShrubberyCreationForm &		operator=( ShrubberyCreationForm const & rhs );
 
 		void	execute(Bureaucrat const & executor) const;
+		std::string	getTarget() const;
 	private:
 		std::string _target;
 };
 
-// std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i );
+std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i );
 
 #endif /* ************************************************************ ShrubberyCreationForm_H */

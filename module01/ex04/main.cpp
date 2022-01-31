@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 		return 2;
 	}
 
-	std::ofstream	outFile(std::string(av[1]) + ".replace");
+	std::ofstream	outFile((std::string(av[1]) + ".replace").c_str());
 
 	if (outFile.good() == false) {
 		std::cerr << "Error: outfile not good." << std::endl;

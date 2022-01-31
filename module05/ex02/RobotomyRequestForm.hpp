@@ -3,6 +3,9 @@
 
 # include <iostream>
 # include <string>
+# include <unistd.h>
+# include <cstdlib>
+# include <ctime>
 # include "Form.hpp"
 
 class RobotomyRequestForm : public Form
@@ -18,12 +21,13 @@ class RobotomyRequestForm : public Form
 		RobotomyRequestForm &		operator=( RobotomyRequestForm const & rhs );
 
 		void	execute(Bureaucrat const & executor) const;
+		std::string	getTarget() const;
 
 	private:
 		std::string _target;
 
 };
 
-// std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i );
+std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i );
 
 #endif /* *********************************************************** RobotomyRequestForm_H */

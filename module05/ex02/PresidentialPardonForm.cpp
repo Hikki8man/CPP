@@ -12,7 +12,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string const & target) : For
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src )
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ) : Form(src)
 {
 	*this = src;
 }
@@ -41,11 +41,13 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 	return *this;
 }
 
-// std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i )
-// {
-// 	//o << "Value = " << i.getValue();
-// 	return o;
-// }
+std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i )
+{
+	
+	o << "Form name: " << i.getName() << " | Grade to be signed: " << i.getGradeToSign() << " | grade to be executed: " << i.getGradeToExe()
+	<< " | Signed: " << i.getSignature() << " | Target: " << i.getTarget();
+	return o;
+}
 
 
 /*
@@ -54,12 +56,25 @@ PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardo
 
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-	(void)executor;
+	if (this->getSignature() == false)
+	{
+		std::cout << this->getName() << " is not signed !" << std::endl;
+		return ;
+	}
+
+	if (executor.getGrade() > this->getGradeToExe())
+		throw Bureaucrat::GradeTooLowException();
+	
+	std::cout << this->_target << " was forgiven by Zafod Beeblebrox" << std::endl;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
+std::string	PresidentialPardonForm::getTarget() const
+{
+	return _target;
+}
 
 /* ************************************************************************** */
