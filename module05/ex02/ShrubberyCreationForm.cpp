@@ -85,6 +85,7 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     \\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_";
 
 	outFile << trees << std::endl;
+	outFile.close();
 }
 
 /*
