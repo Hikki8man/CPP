@@ -64,7 +64,7 @@ void	Character::equip(AMateria* m)
 	{
 		if (_inv[i] == NULL)
 		{
-			_inv[i] = m; //clone instead?
+			_inv[i] = m;
 			if (m->getType() == "ice")
 				std::cout << this->_name << " is now able to throw ice bolts !" << std::endl;
 			else

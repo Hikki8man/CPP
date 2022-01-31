@@ -16,7 +16,7 @@ class Form
 		Form();
 		Form(std::string const & name, size_t gradeToSigned, size_t gradeToExe);
 		Form(Form const & src);
-		~Form();
+		virtual ~Form();
 
 		Form &		operator=( Form const & rhs );
 
@@ -25,9 +25,9 @@ class Form
 		size_t		getGradeToExe() const;
 		size_t		getSignature() const;
 
-		
+		void			beSigned(Bureaucrat const & b);
+		virtual void	execute(Bureaucrat const & executor) const = 0;
 
-		void	beSigned(Bureaucrat const & b);
 
 		class	GradeToLowException : public std::exception
 		{

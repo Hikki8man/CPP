@@ -10,15 +10,10 @@ int main(void)
 		for (int i = 0; i < 200; i++)
 			mike.rankDown();
 	}
-	catch(Bureaucrat::GradeTooHighException& e)
+	catch(std::exception e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
 
 	std::cout << mike << std::endl;
 	std::cout << jeff << std::endl;
@@ -27,15 +22,10 @@ int main(void)
 	{
 		Bureaucrat jeff("Jeff", 0);
 	}
-	catch(Bureaucrat::GradeTooHighException& e)
+	catch(std::exception & e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	catch(Bureaucrat::GradeTooLowException& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
 	std::cout << jeff << std::endl;
 
 }
