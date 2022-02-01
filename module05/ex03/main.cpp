@@ -6,24 +6,15 @@
 
 int main(void)
 {
-	Bureaucrat mike("Mike", 100);
 	Bureaucrat jeff("Jeff", 1);
 	Intern louis;
-	Form *form;
 
-		try
-		{
-			form = louis.makeForm("RobotomyRequestFor", "bender");
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-		
-			jeff.signForm(*form);
-			jeff.executeForm(*form);
+	Form *form = louis.makeForm("RobotomyRequestForm", "bender");
 	
-
-	std::cout << jeff << std::endl;
-
+	if (form)
+	{
+		jeff.executeForm(*form);
+		jeff.signForm(*form);
+		jeff.executeForm(*form);
+	}
 }

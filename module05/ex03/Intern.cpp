@@ -23,7 +23,10 @@ Intern::~Intern()
 
 Intern & Intern::operator=(Intern const & rhs)
 {
-	*this = rhs;
+	if (this != &rhs)
+	{
+		*this = rhs;
+	}
 	return *this;
 }
 
@@ -41,7 +44,17 @@ int	Intern::getFormType(std::string const & type) const
 
 Form * Intern::makeForm(std::string const & name, std::string const & target)
 {
-	int type = getFormType(name);
+	int type;
+	try
+	{
+		type = getFormType(name);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+		return NULL;
+	}
+	
 	Form *f;
 
 	switch (type)

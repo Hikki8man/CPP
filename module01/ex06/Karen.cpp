@@ -1,5 +1,7 @@
 #include "Karen.hpp"
 
+std::string const Karen::_complainsList[4] = { "DEBUG", "INFO", "WARNING", "ERROR" };
+
 Karen::Karen()
 {
 }
@@ -36,39 +38,35 @@ void	Karen::error(void)
 	std::cout << std::endl;
 }
 
-e_complains	Karen::getComplain(std::string const &level) const
+int	Karen::getComplain(std::string const &level) const
 {
-	if (level == "DEBUG")
-		return DEBUG;
-	else if (level == "INFO")
-		return INFO;
-	else if (level == "WARNING")
-		return WARNING;
-	else if (level == "ERROR")
-		return ERROR;
-	else
-		return OTHER;
+	for (int i = 0; i < 4; i++)
+	{
+		if (level == this->_complainsList[i])
+			return i;
+	}
+	return -1;
 }
 
 void	Karen::complain(std::string const &level)
 {
-	e_complains complain = this->getComplain(level);
+	int complain = this->getComplain(level);
 
 	switch (complain)
 	{
-		case DEBUG :
+		case 0 :
 			this->debug();
 
-		case INFO :
+		case 1 :
 			this->info();
 
-		case WARNING :
+		case 2 :
 			this->warning();
 
-		case ERROR :
+		case 3 :
 			this->error();
 			break ;
 
-		case OTHER : std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+		default : std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 }

@@ -4,15 +4,6 @@
 #include <iostream>
 #include <string>
 
-typedef enum	complains
-{
-	DEBUG,
-	INFO,
-	WARNING,
-	ERROR,
-	OTHER
-} e_complains;
-
 class Karen
 {
 private:
@@ -20,8 +11,9 @@ private:
 	void	info(void);
 	void	warning(void);
 	void	error(void);
+	static std::string const _complainsList[4];
 
-	e_complains	getComplain(std::string const &level) const;
+	int		getComplain(std::string const &level) const;
 
 public:
 	Karen();

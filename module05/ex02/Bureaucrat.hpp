@@ -43,8 +43,8 @@ public:
 
 	void		rankUp();
 	void		rankDown();
-	void		signForm(Form & form);
-	void		executeForm(Form const & form);
+	void		signForm(Form & form) const;
+	void		executeForm(Form const & form) const;
 };
 
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs);

@@ -73,7 +73,7 @@ void		Bureaucrat::rankDown()
 		_grade++;
 }
 
-void	Bureaucrat::signForm(Form & form)
+void	Bureaucrat::signForm(Form & form) const
 {
 	if (form.getSignature() == true)
 	{
@@ -83,15 +83,15 @@ void	Bureaucrat::signForm(Form & form)
 	try
 	{
 		form.beSigned(*this);
-		std::cout << this->getName() << " signs " << form.getName() << std::endl;
+		std::cout << _name << " signs " << form.getName() << std::endl;
 	}
 	catch(const Form::GradeToLowException& e)
 	{
-		std::cout << this->getName() << " cannot sign because his " << e.what() << std::endl;
+		std::cout << _name << " cannot sign because his " << e.what() << std::endl;
 	}
 }
 
-void	Bureaucrat::executeForm(Form const & form)
+void	Bureaucrat::executeForm(Form const & form) const
 {
 	try
 	{
