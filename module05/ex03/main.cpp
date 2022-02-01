@@ -11,10 +11,17 @@ int main(void)
 	Intern louis;
 	Form *form;
 
-
-		form = louis.makeForm("RobotomyRequestForm", "bender");
-		jeff.signForm(*form);
-		jeff.executeForm(*form);
+		try
+		{
+			form = louis.makeForm("RobotomyRequestFor", "bender");
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		
+			jeff.signForm(*form);
+			jeff.executeForm(*form);
 	
 
 	std::cout << jeff << std::endl;
