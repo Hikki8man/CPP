@@ -63,14 +63,14 @@ void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	if (executor.getGrade() > this->getGradeToExe())
 		throw Bureaucrat::GradeTooLowException();
 
-	std::cout << executor.getName() << " executs " << this->getName() << "." << std::endl;
-
 	std::ofstream	outFile((this->_target + "_shrubbery").c_str());
 	if (outFile.good() == false)
 	{
 		std::cout << "Error: Outfile problem occured" << std::endl;
 		return ;
 	}
+
+	std::cout << executor.getName() << " executs " << this->getName() << "." << std::endl;
 
 	std::string const trees = "               ,@@@@@@@,\n\
        ,,,.   ,@@@@@@/@@,  .oo8888o.\n\

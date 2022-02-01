@@ -1,18 +1,18 @@
-#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-RobotomyRequestForm::RobotomyRequestForm() : Form("Robotomy Request", 25, 5), _target("targetUnkown")
+PresidentialPardonForm::PresidentialPardonForm() : Form("Presidential Pardon", 72, 45), _target("targetUnkown")
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const & target) : Form("Robotomy Request", 25, 5), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string const & target) : Form("Presidential Pardon", 72, 45), _target(target)
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) : Form(src)
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ) : Form(src)
 {
 	*this = src;
 }
@@ -22,7 +22,7 @@ RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) : Fo
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-RobotomyRequestForm::~RobotomyRequestForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
@@ -31,7 +31,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm const & rhs )
+PresidentialPardonForm &				PresidentialPardonForm::operator=( PresidentialPardonForm const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -41,7 +41,7 @@ RobotomyRequestForm &				RobotomyRequestForm::operator=( RobotomyRequestForm con
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
+std::ostream &			operator<<( std::ostream & o, PresidentialPardonForm const & i )
 {
 	
 	o << "Form name: " << i.getName() << " | Grade to be signed: " << i.getGradeToSign() << " | grade to be executed: " << i.getGradeToExe()
@@ -54,7 +54,7 @@ std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
+void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (this->getSignature() == false)
 		throw Form::FormNotSigned();
@@ -63,28 +63,14 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 		throw Bureaucrat::GradeTooLowException();
 
 	std::cout << executor.getName() << " executs " << this->getName() << "." << std::endl;
-	
-	std::srand(time(NULL));
-	int	r = rand() % 2;
-
-	std::cout << "* BRRRRRRRRRRRRRrrrrRRRRRrrRRR *" << std::endl;
-	std::cout << "." << std::flush;
-	sleep(1);
-	std::cout << " . " << std::flush;
-	sleep(1);
-	std::cout << "." << std::endl << std::flush;
-	sleep(1);
-	if (r == true)
-		std::cout << this->_target << " robotomy was a success !!" << std::endl;
-	else
-		std::cout << this->_target << " robotomy was a failure !!" << std::endl;
+	std::cout << this->_target << " was forgiven by Zafod Beeblebrox" << std::endl;
 }
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string	RobotomyRequestForm::getTarget() const
+std::string	PresidentialPardonForm::getTarget() const
 {
 	return _target;
 }
