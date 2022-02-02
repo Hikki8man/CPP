@@ -57,11 +57,16 @@ std::ostream &			operator<<( std::ostream & o, ShrubberyCreationForm const & i )
 
 void    ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-	if (this->getSignature() == false)
-		throw Form::FormNotSigned();
-
-	if (executor.getGrade() > this->getGradeToExe())
-		throw Bureaucrat::GradeTooLowException();
+	try
+	{
+		this->checkGradeAndSign(executor);
+		std::cout << executor.getName() << " executs " << this->getName() << "." << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << executor.getName() << " couldn't execute this form because: " << e.what() << std::endl;
+		return ;
+	}
 
 	std::ofstream	outFile((this->_target + "_shrubbery").c_str());
 	if (outFile.good() == false)

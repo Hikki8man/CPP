@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	Bureaucrat mike("Mike", 1);
+	Bureaucrat mike("Mike", 0);
 	Bureaucrat jeff("Jeff", 1);
 
 	try

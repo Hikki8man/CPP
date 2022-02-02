@@ -56,13 +56,16 @@ std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i )
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	if (this->getSignature() == false)
-		throw Form::FormNotSigned();
-
-	if (executor.getGrade() > this->getGradeToExe())
-		throw Bureaucrat::GradeTooLowException();
-
-	std::cout << executor.getName() << " executs " << this->getName() << "." << std::endl;
+	try
+	{
+		this->checkGradeAndSign(executor);
+		std::cout << executor.getName() << " executs " << this->getName() << "." << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << executor.getName() << " couldn't execute this form because: " << e.what() << std::endl;
+		return ;
+	}
 	
 	std::srand(time(NULL));
 	int	r = rand() % 2;

@@ -60,7 +60,8 @@ class Form
 		size_t const _gradeToExe;
 		bool _signed;
 
-
+	protected:
+		void checkGradeAndSign(Bureaucrat const & executor) const;
 
 };
 

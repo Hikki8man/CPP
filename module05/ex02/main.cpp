@@ -19,6 +19,8 @@ int main(void)
 	// jeff.signForm(form);
 	// std::cout << form << std::endl;
 
+
 	std::cout << jeff << std::endl;
 
+	delete form;
 }

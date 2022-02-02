@@ -13,8 +13,11 @@ int main(void)
 	
 	if (form)
 	{
+		form->execute(jeff);
 		jeff.executeForm(*form);
 		jeff.signForm(*form);
 		jeff.executeForm(*form);
 	}
+
+	delete form;
 }

@@ -65,6 +65,15 @@ void	Form::beSigned(Bureaucrat const & b)
 		_signed = true;
 }
 
+void	Form::checkGradeAndSign(Bureaucrat const & executor) const
+{
+	if (this->getSignature() == false)
+		throw Form::FormNotSigned();
+
+	if (executor.getGrade() > this->getGradeToExe())
+		throw Bureaucrat::GradeTooLowException();
+}
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
