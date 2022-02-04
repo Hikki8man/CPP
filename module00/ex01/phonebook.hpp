@@ -18,6 +18,7 @@ public:
 	int			search(void);
 	std::string	reformat(std::string s);
 	Contact		*get_next_contact(void);
+	int 		getContactNb() const;
 };
 
 #endif

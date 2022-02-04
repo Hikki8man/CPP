@@ -104,3 +104,8 @@ int	Phonebook::search(void)
 		return 0;
 	}
 }
+
+int		Phonebook::getContactNb() const
+{
+	return this->contact_nb;
+}

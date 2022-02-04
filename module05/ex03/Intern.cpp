@@ -1,6 +1,6 @@
 # include "Intern.hpp"
 
-std::string const Intern::_formKnown[3] =  {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
+std::string const Intern::_formKnown[3] =  {"Shrubbery creation", "Robotomy request", "Presidential pardon"};
 
 /* CONSTRUCTOR */
 
