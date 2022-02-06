@@ -7,6 +7,4 @@ class C : public Base
 {
 };
 
-std::ostream &			operator<<( std::ostream & o, C const & i );
-
 #endif /* *************************************************************** C_H */
