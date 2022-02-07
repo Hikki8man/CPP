@@ -45,6 +45,7 @@ int	Intern::getFormType(std::string const & type) const
 Form * Intern::makeForm(std::string const & name, std::string const & target)
 {
 	int type;
+
 	try
 	{
 		type = getFormType(name);
