@@ -8,7 +8,7 @@ class Phonebook
 {
 private:
 	Contact		list[8];
-	int     	contact_nb;
+	int     	_contact_nb;
 
 public:
 	Phonebook(void);

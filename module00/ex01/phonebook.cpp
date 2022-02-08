@@ -2,7 +2,7 @@
 
 Phonebook::Phonebook(void)
 {
-    this->contact_nb = 0;
+    this->_contact_nb = 0;
 }
 
 Phonebook::~Phonebook()
@@ -11,39 +11,47 @@ Phonebook::~Phonebook()
 
 Contact	*Phonebook::get_next_contact(void)
 {
-    return(&this->list[this->contact_nb++]);
+    return(&this->list[this->_contact_nb++]);
+}
+
+void setContactValue(Contact & contact, std::string const & buf, int const & index) {
+	switch (index)
+	{
+		case 0 :
+			contact.setFirstName(buf);
+			break ;
+		case 1 :
+			contact.setLastName(buf);
+			break ;
+		case 2 :
+			contact.setNickname(buf);
+			break ;
+		case 3 :
+			contact.setPhoneNumber(buf);
+			break ;
+		case 4 :
+			contact.setSecret(buf);
+	}
 }
 
 int	Phonebook::add_contact(void)
 {
     Contact		*tmp = this->get_next_contact();
 	std::string	buf;
+	std::string toPrint[5] = { "first name", "last name", "nickname", "phone number", "secret"};
 
-    std::cout << "Enter first name : ";
-    std::getline(std::cin, buf);
-	if (std::cin.eof())
-		return 0;
-	tmp->setFirstName(buf);
-    std::cout << "Enter last name : ";
-    std::getline(std::cin, buf);
-	if (std::cin.eof())
-		return 0;
-	tmp->setLastName(buf);
-    std::cout << "Enter nickname : ";
-    std::getline(std::cin, buf);
-	if (std::cin.eof())
-		return 0;
-	tmp->setNickname(buf);
-    std::cout << "Enter phone number : ";
-    std::getline(std::cin, buf);
-	if (std::cin.eof())
-		return 0;
-	tmp->setPhoneNumber(buf);
-    std::cout << "Enter his/her darkest secret : ";
-    std::getline(std::cin, buf);
-	if (std::cin.eof())
-		return 0;
-	tmp->setSecret(buf);
+	for (int i = 0; i < 5; ++i) {
+		std::cout << "Enter " << toPrint[i] << ": ";
+		std::getline(std::cin, buf);
+		if (std::cin.eof())
+			return 0;
+		else if (buf.empty() || (i == 3 && buf.find_first_not_of("0123456789") != std::string::npos)) {
+			--i;
+			continue ;
+		}
+		setContactValue(*tmp, buf, i);
+	}
+	
 	return 1;
 }
 
@@ -60,14 +68,14 @@ std::string 	Phonebook::reformat(std::string s)
 
 int	Phonebook::search(void)
 {
-    if (this->contact_nb == 0)
+    if (this->_contact_nb == 0)
     {
         std::cout << "Empty list" << std::endl;
         return 0;
     }
     std::cout << "  index   |first name|last name | nickname " << std::endl;
 	std::cout << std::setfill(' ') << std::right;
-	for (int i = 0; i < this->contact_nb; i++)
+	for (int i = 0; i < this->_contact_nb; i++)
 	{
         std::cout << std::setw(10) << i << "|";
         std::cout << std::setw(10) << this->reformat(this->list[i].getFirstName()) << "|";
@@ -93,7 +101,7 @@ int	Phonebook::search(void)
 		{
 			continue ;
 		}
-		if (index < 0 || index >= this->contact_nb)
+		if (index < 0 || index >= this->_contact_nb)
 			continue ;
 		std::cout << "First name : " << this->list[index].getFirstName() << std::endl;
 		std::cout << "Last name : " << this->list[index].getLastName() << std::endl;
@@ -107,5 +115,5 @@ int	Phonebook::search(void)
 
 int		Phonebook::getContactNb() const
 {
-	return this->contact_nb;
+	return this->_contact_nb;
 }
