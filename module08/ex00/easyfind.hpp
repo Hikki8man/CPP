@@ -3,16 +3,19 @@
 
 # include <iostream>
 # include <string>
+# include <algorithm>
+# include <list>
+# include <vector>
 
 template < typename T >
-int	easyfind(T const & container, int toFind) {
+typename T::iterator easyfind(T & container, int toFind) {
 
-	for (int i = 0; i < container.size(); i++) {
-
-		if (container[i] == toFind);
-			return i;
-	}
-	return -1;
+	typename T::iterator t = find(container.begin(), container.end(), toFind);
+	if (t != container.end())
+		return t;
+	else
+		throw(std::exception());
+	
 }
 
 #endif /* ******************************************************** EASYFIND_H */

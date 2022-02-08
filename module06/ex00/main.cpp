@@ -1,6 +1,6 @@
 # include <iostream>
 # include <iomanip>
-# include <math.h>
+# include <cmath>
 # include <limits.h>
 
 void displayChar(double nb) {
@@ -8,7 +8,7 @@ void displayChar(double nb) {
 	std::cout << "char: ";
 
 	if (std::isprint(nb))
-		std::cout << static_cast<char>(nb) << std::endl;
+		std::cout << "'" << static_cast<char>(nb) << "'" << std::endl;
 	else if (std::isnan(nb) || std::isinf(nb))
 		std::cout << "Impossible" << std::endl;
 	else
@@ -34,7 +34,7 @@ void displayFloat(double nb) {
 	else if (std::isinf(nb))
 		std::cout << ((nb < 0) ? "-" : "+") << "inf";
 	else
-		std::cout << nb << ((nb - static_cast<int>(nb) == 0) ? ".0" : "");
+		std::cout << nb << ((nb == std::roundf(nb)) ? ".0" : "");
 	std::cout << "f" << std::endl;
 }
 
@@ -47,7 +47,7 @@ void displayDouble(double nb) {
 	else if (std::isinf(nb))
 		std::cout << ((nb < 0) ? "-" : "+") << "inf";
 	else
-		std::cout << nb << ((nb - static_cast<long long>(nb) == 0) ? ".0" : "");
+		std::cout << nb << ((nb == std::roundf(nb)) ? ".0" : ""); //todo need to fix this
 	
 	std::cout << std::endl;
 }
