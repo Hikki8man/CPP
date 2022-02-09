@@ -11,7 +11,6 @@ class Span
 	typedef unsigned int uint;
 	public:
 
-		Span();
 		Span(uint size);
 		Span( Span const & src );
 		~Span();
@@ -21,13 +20,23 @@ class Span
 		void	addNumber(int n);
 		uint	shortestSpan();
 		uint	longestSpan();
+		void	generate();
+
+		class VectorFullException : public std::exception {
+			public :
+				virtual char const * what() const throw();
+		};
+		class NoSpanException : public std::exception {
+			public :
+				virtual char const * what() const throw();
+		};
+
 
 	private:
+		Span();
 		std::vector<int> _v;
 		uint _size;
 
 };
-
-std::ostream &			operator<<( std::ostream & o, Span const & i );
 
 #endif /* ************************************************************ SPAN_H */

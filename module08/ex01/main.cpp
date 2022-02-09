@@ -3,16 +3,50 @@
 
 int main() {
 
-	Span span(10000000);
-	std::srand(time(NULL));
+	Span span(5);
 
+	span.addNumber(6);
+	span.addNumber(3);
+	span.addNumber(17);
+	span.addNumber(9);
+	span.addNumber(11);
 
-	for (int i = 0; i < 10000000; i++) {
-		span.addNumber(rand());
-	}
-
-	std::cout << span.longestSpan() << std::endl;
 	std::cout << span.shortestSpan() << std::endl;
+	std::cout << span.longestSpan() << std::endl;
+
+	std::cout << "--------------------------------------------------" << std::endl;
+
+	Span s(10000);
+
+	s.generate();
+
+	std::cout << s.shortestSpan() << std::endl;
+	std::cout << s.longestSpan() << std::endl;
+
+	std::cout << "--------------------------------------------------" << std::endl;
+
+	{
+		Span sp(0);
+
+		try {
+			sp.addNumber(23);
+		}
+		catch (std::exception & e) {
+			std::cout << e.what() << std::endl;
+		}
+	}
+	std::cout << "--------------------------------------------------" << std::endl;
+	{
+		Span sp(1);
+
+		try {
+			sp.addNumber(23);
+			sp.longestSpan();
+		}
+		catch (std::exception & e) {
+			std::cout << e.what() << std::endl;
+		}
+	}
 
 	return 0;
 }

@@ -20,7 +20,7 @@ void diplayInt(double nb) {
 	std::cout << "int: ";
 
 	if (std::isnan(nb) || std::isinf(nb) || nb < INT_MIN || nb > INT_MAX)
-		std::cout << "impossible" << std::endl;
+		std::cout << "Impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(nb) << std::endl;
 }
@@ -34,7 +34,7 @@ void displayFloat(double nb) {
 	else if (std::isinf(nb))
 		std::cout << ((nb < 0) ? "-" : "+") << "inf";
 	else
-		std::cout << nb << ((nb == std::roundf(nb)) ? ".0" : "");
+		std::cout << nb << ((nb == static_cast<int>(nb)) ? ".0" : "");
 	std::cout << "f" << std::endl;
 }
 
@@ -47,7 +47,7 @@ void displayDouble(double nb) {
 	else if (std::isinf(nb))
 		std::cout << ((nb < 0) ? "-" : "+") << "inf";
 	else
-		std::cout << nb << ((nb == std::roundf(nb)) ? ".0" : ""); //todo need to fix this
+		std::cout << nb << ((nb == static_cast<long long>(nb)) ? ".0" : "");
 	
 	std::cout << std::endl;
 }

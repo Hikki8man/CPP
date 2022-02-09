@@ -35,16 +35,11 @@ Span &				Span::operator=( Span const & rhs )
 {
 	if ( this != &rhs )
 	{
-		*this = rhs;
+		this->_size = rhs._size;
+		this->_v = rhs._v;
 	}
 	return *this;
 }
-
-// std::ostream &			operator<<( std::ostream & o, Span const & i )
-// {
-// 	//o << "Value = " << i.getValue();
-// 	return o;
-// }
 
 
 /*
@@ -53,14 +48,14 @@ Span &				Span::operator=( Span const & rhs )
 
 void	Span::addNumber(int n) {
 	if (_v.size() == _size) {
-		throw std::exception();
+		throw Span::VectorFullException();
 	}
 	_v.push_back(n);
 }
 
 uint	Span::shortestSpan() {
 	if (_v.empty() || _v.size() == 1)
-		throw std::exception();
+		throw Span::NoSpanException();
 	std::vector<int> v(_v);
 	std::sort (v.begin(), v.end());
 	uint shorty = abs(*v.begin() - *(v.begin() + 1));
@@ -73,13 +68,26 @@ uint	Span::shortestSpan() {
 }
 uint	Span::longestSpan() {
 	if (_v.empty() || _v.size() == 1)
-		throw std::exception();
+		throw Span::NoSpanException();
 	return *std::max_element(_v.begin(), _v.end()) - *std::min_element(_v.begin(), _v.end());
 }
 
+void	Span::generate() {
+	std::srand(time(NULL));
+	std::generate_n(std::back_inserter(_v), _size, std::rand);
+}
+
 /*
-** --------------------------------- ACCESSOR ---------------------------------
+** --------------------------------- EXCEPTIONS ----------------------------------
 */
+
+char const * Span::VectorFullException::what() const throw() {
+	return "Vector is already full !";
+}
+
+char const * Span::NoSpanException::what() const throw() {
+	return "No span can be found !";
+}
 
 
 /* ************************************************************************** */
