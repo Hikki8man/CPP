@@ -21,10 +21,10 @@ int main() {
 	std::cout << "stack: " << m.top() << std::endl;
 
 	
-	MutantStack<int>::iterator ite = m.end();
+	// MutantStack<int>::iterator ite = m.end();
 
-	for (MutantStack<int>::iterator it = m.begin();  it != ite; it++)
-		std::cout << *it << std::endl;
+	// for (MutantStack<int>::iterator it = m.begin();  it != ite; it++)
+		// std::cout << *it << std::endl;
 
 
 	MutantStack<int>::iterator itee = mcpy.end();

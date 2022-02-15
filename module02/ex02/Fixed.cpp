@@ -135,10 +135,7 @@ bool	Fixed::operator!=(Fixed const & rhs) const
 
 Fixed	Fixed::operator+(Fixed const & rhs) const
 {
-	Fixed a;
-
-	a.setRawBits(this->_rawNumber + rhs._rawNumber);
-	return a;
+	return Fixed(this->toFloat() + rhs.toFloat());
 }
 
 Fixed &	Fixed::operator++()
@@ -158,10 +155,7 @@ Fixed	Fixed::operator++(int)
 
 Fixed	Fixed::operator-(Fixed const & rhs) const
 {
-	Fixed a;
-
-	a.setRawBits(this->_rawNumber - rhs._rawNumber);
-	return a;
+	return Fixed(this->toFloat() - rhs.toFloat());
 }
 
 Fixed &	Fixed::operator--()
@@ -181,11 +175,7 @@ Fixed	Fixed::operator--(int)
 
 Fixed	Fixed::operator*(Fixed const & rhs) const
 {
-	Fixed a;
-
-	a.setRawBits((this->_rawNumber * rhs._rawNumber) >> this->_bits);
-	return a;
-	// return Fixed(this->toFloat() * rhs.toFloat());
+	return Fixed(this->toFloat() * rhs.toFloat());
 }
 
 Fixed	Fixed::operator/(Fixed const & rhs) const
