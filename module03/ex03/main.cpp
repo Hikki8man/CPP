@@ -15,6 +15,8 @@ int main(void)
 	a.highFivesGuys();
 	a.whoAmI();
 
+std::cout << "-------------------" << std::endl;
+
 	DiamondTrap b(a);
 
 	b.attack("un bambou");

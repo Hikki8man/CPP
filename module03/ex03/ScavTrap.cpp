@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap()
+ScavTrap::ScavTrap()
 {
 	std::cout << "\033[0;33mDefault ScavTrap constructor called\033[0;37m" << std::endl;
 	this->_hp = 100;

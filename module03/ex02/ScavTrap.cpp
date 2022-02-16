@@ -1,8 +1,11 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap()
+ScavTrap::ScavTrap()
 {
 	std::cout << "Default ScavTrap constructor by copy called" << std::endl;
+	this->_hp = 100;
+	this->_energy = 50;
+	this->_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)

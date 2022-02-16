@@ -1,8 +1,11 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap()
+FragTrap::FragTrap()
 {
 	std::cout << "Default FragTrap constructor called" << std::endl;
+	this->_hp = 100;
+	this->_energy = 100;
+	this->_attackDamage = 30;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
@@ -35,5 +38,5 @@ FragTrap::~FragTrap()
 
 void	FragTrap::highFivesGuys(void) const
 {
-	std::cout << "Hey let's high fives guys !" << std::endl;
+	std::cout << this->_name << " says: Hey let's high fives guys !" << std::endl;
 }

@@ -74,7 +74,7 @@ uint	Span::longestSpan() {
 
 void	Span::generate() {
 	std::srand(time(NULL));
-	std::generate_n(std::back_inserter(_v), _size, std::rand);
+	std::generate_n(std::back_inserter(_v), _size, std::rand);//TODO REDO // _v.resize(_size);
 }
 
 /*

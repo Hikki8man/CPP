@@ -34,11 +34,6 @@ DiamondTrap::~DiamondTrap()
 	std::cout << "\033[0;34mDiamond destructor called\033[0;37m" << std::endl;
 }
 
-void	DiamondTrap::attack(std::string const & target)
-{
-	this->ScavTrap::attack(target);
-}
-
 void	DiamondTrap::whoAmI(void) const
 {
 	std::cout << "Diamond name: " << this->_name << std::endl;

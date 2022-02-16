@@ -18,15 +18,20 @@ MateriaSource::MateriaSource(MateriaSource const & src)
 MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < _maxMateria; i++)
-		delete _materiaT[i];
+		if (_materiaT[i])
+			delete _materiaT[i];
 }
 
 /* OPERATOR OVERLOAD */
 
 MateriaSource& MateriaSource::operator=(MateriaSource const & rhs)
 {
-	for (int i = 0; i < _maxMateria; i++)
+	for (int i = 0; i < _maxMateria; i++) {
+		if (_materiaT[i]) {
+			delete _materiaT[i];
+		}
 		_materiaT[i] = rhs._materiaT[i]->clone();
+	}
 	return *this;
 }
 

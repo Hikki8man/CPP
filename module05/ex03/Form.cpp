@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Form::Form() : _name("some form"), _gradeToSign(150), _gradeToExe(50)
+Form::Form() : _name("some form"), _gradeToSign(150), _gradeToExe(50), _signed(false)
 {
 }
 

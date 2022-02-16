@@ -1,6 +1,6 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap()
+FragTrap::FragTrap()
 {
 	std::cout << "\033[0;32mDefault FragTrap constructor called\033[0;37m" << std::endl;
 
