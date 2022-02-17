@@ -4,36 +4,43 @@
 
 int main()
 {
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-	me->unequip(0);
-	me->use(0, *bob);
+	MateriaSource src;
 
-	Character jaina;
+	src.learnMateria(new Ice());
+	src.learnMateria(new Cure());
 
-	jaina.equip(new Cure());
+	AMateria* materia = src.createMateria("Flame");
+	materia = src.createMateria("ice");
 
-	jaina.use(0, *me);
+	Character nanard("Bernard");
+	Character bob("Bob");
 
-	*me = jaina;
+	nanard.use(0, bob);
 
-	me->use(1, *bob);
-	me->unequip(0);
-	jaina.use(0, *me);
+	nanard.equip(materia);
 
-	delete tmp;
-	delete bob;
-	delete me;
-	delete src;
+	nanard.use(0, bob);
+
+	AMateria* cure = src.createMateria("cure");
+
+	nanard.equip(cure);
+
+	nanard.use(1, bob);
+
+
+	AMateria* m = new Ice();
+	AMateria* m2 = new Cure();
+	AMateria* m3 = new Cure();
+
+	nanard.equip(m);
+	nanard.equip(m2);
+	nanard.equip(m3);
+	delete m3;
+
+	nanard.use(3, bob);
+	nanard.unequip(3);
+	nanard.use(3, bob);
+	delete(m2);
+
 	return 0;
 }

@@ -54,7 +54,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 {
 	for (int i = 0; i < _maxMateria; i++)
 	{
-		if (_materiaT[i]->getType() == type)
+		if (_materiaT[i] && _materiaT[i]->getType() == type)
 		{
 			if (type == "ice")
 				return new Ice();

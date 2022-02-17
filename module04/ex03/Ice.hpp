@@ -19,8 +19,6 @@ class Ice : public AMateria
 		AMateria*	clone() const;
 		void		use(ICharacter& target);
 
-	private:
-
 };
 
 #endif /* ************************************************************* ICE_H */

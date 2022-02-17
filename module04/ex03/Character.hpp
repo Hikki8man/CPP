@@ -18,7 +18,6 @@ public:
 
 	Character & operator=(Character const & rhs);
 
-	using ICharacter::equip;//???
 	std::string const & getName(void) const;
 	void	equip(AMateria* m);
 	void	unequip(int idx);

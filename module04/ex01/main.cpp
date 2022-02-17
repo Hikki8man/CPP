@@ -29,7 +29,7 @@ int main(void)
 
 	Cat b(a);
 
-	a.getBrain().addIdeas("J'adore les bits");
+	a.getBrain().addIdeas("heeelllo");
 
 	a.printIdeas();
 	b.printIdeas();

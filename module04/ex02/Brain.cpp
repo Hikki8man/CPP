@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Brain::Brain() : _ideas()
+Brain::Brain()
 {
 	std::cout << "Brain hase been created" << std::endl;
 }
@@ -56,7 +56,7 @@ void	Brain::addIdeas(std::string const & idea)
 {
 	int i = 0;
 
-	while (this->_ideas[i] != "") {
+	while (i < 100 && this->_ideas[i] != "") {
 		i++;
 	}
 	if (i == 100)

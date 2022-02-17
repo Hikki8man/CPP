@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Brain::Brain() : _ideas()
+Brain::Brain()
 {
 	std::cout << "Brain hase been created" << std::endl;
 }
@@ -33,7 +33,7 @@ Brain &				Brain::operator=( Brain const & rhs )
 {
 	int i = 0;
 
-	while (rhs._ideas[i] != "")
+	while (i < 100)
 	{
 		this->_ideas[i] = rhs._ideas[i];
 		i++;
@@ -46,16 +46,11 @@ Brain &				Brain::operator=( Brain const & rhs )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
 void	Brain::addIdeas(std::string const & idea)
 {
 	int i = 0;
 
-	while (this->_ideas[i] != "") {
+	while (i < 100 && this->_ideas[i] != "") {
 		i++;
 	}
 	if (i == 100)
@@ -64,6 +59,10 @@ void	Brain::addIdeas(std::string const & idea)
 		this->_ideas[i] = idea;
 	
 }
+
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
 
 std::string const Brain::getIdeas(int n) const
 {

@@ -37,9 +37,10 @@ Character & Character::operator=(Character const & rhs)
 	this->_name = rhs._name;
 	for (int i = 0; i < _invSize; i++)
 	{
-		if (this->_inv[i] != NULL)
+		if (this->_inv[i])
 			delete this->_inv[i];
-		this->_inv[i] = rhs._inv[i];
+		if (rhs._inv[i])
+			this->_inv[i] = rhs._inv[i]->clone();
 	}
 	return *this;
 }
