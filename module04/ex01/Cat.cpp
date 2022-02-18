@@ -47,7 +47,7 @@ void Cat::printIdeas(void) const
 	}
 }
 
-Brain & Cat::getBrain()
+void	Cat::addIdea(std::string const & idea)
 {
-	return *this->_brain;
+	this->_brain->addIdeas(idea);
 }

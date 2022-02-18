@@ -2,8 +2,6 @@ NAME	=	rpg
 
 SRC		=	main.cpp			\
 			AMateria.cpp		\
-			IMateriaSource.cpp	\
-			ICharacter.cpp		\
 			MateriaSource.cpp 	\
 			Character.cpp		\
 			Ice.cpp				\

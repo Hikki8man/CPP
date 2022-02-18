@@ -47,7 +47,7 @@ void Dog::printIdeas(void) const
 	}
 }
 
-Brain & Dog::getBrain()
+void	Dog::addIdea(std::string const & idea)
 {
-	return *this->_brain;
+	this->_brain->addIdeas(idea);
 }

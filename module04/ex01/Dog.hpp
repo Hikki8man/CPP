@@ -14,7 +14,7 @@ public:
 
 	void	makeSound(void) const;
 	void 	printIdeas(void) const;
-	Brain & getBrain();
+	void	addIdea(std::string const & idea);
 
 protected:
 	Brain *_brain;

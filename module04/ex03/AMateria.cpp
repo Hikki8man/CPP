@@ -36,14 +36,6 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 	this->_type = rhs._type;
 	return *this;
 }
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
-
-void	AMateria::use(ICharacter& target)
-{
-	(void)target;
-}
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
