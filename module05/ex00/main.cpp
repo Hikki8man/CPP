@@ -2,17 +2,16 @@
 
 int main(void)
 {
-	Bureaucrat mike("Mike", 0);
+	Bureaucrat mike("Mike", 150);
 	Bureaucrat jeff("Jeff", 1);
 
 	try
 	{
-		for (int i = 0; i < 200; i++)
-			mike.rankDown();
+		mike.rankDown();
 	}
-	catch(std::exception e)
+	catch(std::exception & e)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cerr << mike.getName() << ": " << e.what() << std::endl;
 	}
 
 	std::cout << mike << std::endl;
@@ -20,7 +19,7 @@ int main(void)
 
 	try 
 	{
-		Bureaucrat jeff("Jeff", 0);
+		Bureaucrat joe("Joe", 0);
 	}
 	catch(std::exception & e)
 	{
