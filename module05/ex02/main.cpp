@@ -9,18 +9,21 @@ int main(void)
 	Bureaucrat jeff("Jeff", 1);
 
 	Form *form = new RobotomyRequestForm("Bezos");
+	
 
 	std::cout << *form << std::endl;
 	jeff.signForm(*form);
-
+	std::cout << *form << std::endl;
+	mike.executeForm(*form);
 	jeff.executeForm(*form);
-	// mike.signForm(form);
-	// std::cout << form << std::endl;
-	// jeff.signForm(form);
-	// std::cout << form << std::endl;
+
+	ShrubberyCreationForm trees("Forest");
+
+	jeff.executeForm(trees);
+	jeff.signForm(trees);
+	jeff.executeForm(trees);
 
 
-	std::cout << jeff << std::endl;
 
 	delete form;
 }

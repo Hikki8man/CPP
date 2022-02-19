@@ -56,20 +56,15 @@ Form * Intern::makeForm(std::string const & name, std::string const & target)
 		return NULL;
 	}
 	
-	Form *f;
+	std::cout << "Intern creates " << name << std::endl;
 
 	switch (type)
 	{
-		case 0 :
-			f =  new ShrubberyCreationForm(target);
-			break ;
-		case 1 :
-			f = new RobotomyRequestForm(target);
-			break ;
-		case 2 :
-			f = new PresidentialPardonForm(target);
-			break ;
+		case 0 : return new ShrubberyCreationForm(target);
+		
+		case 1 : return new RobotomyRequestForm(target);
+
+		case 2 : return new PresidentialPardonForm(target);
 	}
-	std::cout << "Intern creates " << name << std::endl;
-	return f;
+	return NULL;
 }
