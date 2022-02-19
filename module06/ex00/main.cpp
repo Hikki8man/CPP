@@ -9,6 +9,8 @@ void displayChar(double nb) {
 
 	if (std::isprint(nb))
 		std::cout << "'" << static_cast<char>(nb) << "'" << std::endl;
+	else if (nb < 0 || nb > 127)
+		std::cout << "Impossible" << std::endl;
 	else
 		std::cout << "Non diplayable" << std::endl;
 }
