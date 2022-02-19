@@ -27,14 +27,20 @@ void displayFloat(double nb) {
 
 	std::cout << "float: ";
 
-	std::cout << static_cast<float>(nb) << ((nb == static_cast<int>(nb)) ? ".0" : "") << "f" << std::endl;
+	std::cout << static_cast<float>(nb);
+	if (!fmodf(static_cast<float>(nb), 1) && nb < 1000000)
+		std::cout << ".0";
+	std::cout << "f" << std::endl;
 }
 
 void displayDouble(double nb) {
 
 	std::cout << "double: ";
 
-	std::cout << nb << ((nb == static_cast<long long>(nb)) ? ".0" : "") << std::endl;;
+	std::cout << nb;
+	if (!fmod(nb, 1) && nb < 1000000)
+		std::cout << ".0";
+	std::cout << std::endl;
 }
 
 int	main(int ac, char **av)
@@ -53,5 +59,4 @@ int	main(int ac, char **av)
 	displayDouble(nb);
 	
 	return 0;
-
 }
