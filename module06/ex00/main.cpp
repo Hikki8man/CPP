@@ -9,17 +9,15 @@ void displayChar(double nb) {
 
 	if (std::isprint(nb))
 		std::cout << "'" << static_cast<char>(nb) << "'" << std::endl;
-	else if (std::isnan(nb) || std::isinf(nb))
-		std::cout << "Impossible" << std::endl;
 	else
 		std::cout << "Non diplayable" << std::endl;
 }
 
-void diplayInt(double nb) {
+void diplayInt(double nb, std::string const & s) {
 
 	std::cout << "int: ";
 
-	if (std::isnan(nb) || std::isinf(nb) || nb < INT_MIN || nb > INT_MAX)
+	if (s.compare("nan") == 0 || nb < INT_MIN || nb > INT_MAX)
 		std::cout << "Impossible" << std::endl;
 	else
 		std::cout << static_cast<int>(nb) << std::endl;
@@ -29,27 +27,14 @@ void displayFloat(double nb) {
 
 	std::cout << "float: ";
 
-	if (std::isnan(nb))
-		std::cout << "nan";
-	else if (std::isinf(nb))
-		std::cout << ((nb < 0) ? "-" : "+") << "inf";
-	else
-		std::cout << nb << ((nb == static_cast<int>(nb)) ? ".0" : "");
-	std::cout << "f" << std::endl;
+	std::cout << static_cast<float>(nb) << ((nb == static_cast<int>(nb)) ? ".0" : "") << "f" << std::endl;
 }
 
 void displayDouble(double nb) {
 
 	std::cout << "double: ";
 
-	if (std::isnan(nb))
-		std::cout << "nan";
-	else if (std::isinf(nb))
-		std::cout << ((nb < 0) ? "-" : "+") << "inf";
-	else
-		std::cout << nb << ((nb == static_cast<long long>(nb)) ? ".0" : "");
-	
-	std::cout << std::endl;
+	std::cout << nb << ((nb == static_cast<long long>(nb)) ? ".0" : "") << std::endl;;
 }
 
 int	main(int ac, char **av)
@@ -63,7 +48,7 @@ int	main(int ac, char **av)
 		nb = atof(av[1]);
 	
 	displayChar(nb);
-	diplayInt(nb);
+	diplayInt(nb, av[1]);
 	displayFloat(nb);
 	displayDouble(nb);
 	
