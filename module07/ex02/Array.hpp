@@ -2,7 +2,7 @@
 # define ARRAY_HPP
 
 # include <iostream>
-# include <string>
+# include <cstring>
 
 template < typename T>
 class Array
@@ -14,11 +14,14 @@ class Array
 
 		Array() : _size(0), _t(NULL) {}
 
-		Array(uint n) : _size(n) { this->_t = new T[n]; }
+		Array(uint n) : _size(n) {
+			this->_t = new T[n];
+			std::memset(this->_t, 0, sizeof(T) * _size);
+		}
 	
 		Array( Array const & src ) : _t(NULL) { *this = src; };
 
-		~Array() { delete [] this->_t; };
+		~Array() { if (this->_t) delete [] this->_t; };
 
 		Array &		operator=( Array const & rhs ) {
 

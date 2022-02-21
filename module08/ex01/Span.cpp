@@ -1,5 +1,7 @@
 #include "Span.hpp"
 
+
+int Span::_range = INT_MAX;
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
@@ -41,7 +43,6 @@ Span &				Span::operator=( Span const & rhs )
 	return *this;
 }
 
-
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
@@ -72,9 +73,15 @@ uint	Span::longestSpan() {
 	return *std::max_element(_v.begin(), _v.end()) - *std::min_element(_v.begin(), _v.end());
 }
 
-void	Span::generate() {
-	std::srand(time(NULL));
-	std::generate_n(std::back_inserter(_v), _size, std::rand);//TODO REDO // _v.resize(_size);
+
+int		Span::randomNumber() {
+	return std::rand() % _range;
+}
+
+void	Span::generate(int range) {
+	_range = range;
+	_v.resize(_size);
+	std::generate(_v.begin(), _v.end(), randomNumber);
 }
 
 /*
@@ -89,5 +96,16 @@ char const * Span::NoSpanException::what() const throw() {
 	return "No span can be found !";
 }
 
+/*
+** --------------------------------- ACCESSORS ----------------------------------
+*/
+
+uint	Span::getSize() const {
+	return this->_size;
+}
+
+std::vector<int> 	Span::getVector() const {
+	return this->_v;
+}
 
 /* ************************************************************************** */

@@ -4,6 +4,7 @@ int main() {
 
 	Array<int> a(10);
 
+	std::cout << a << std::endl;
 	try
 	{
 		a[10] = 1;
@@ -25,8 +26,8 @@ int main() {
 
 	b[0] = 42;
 
-	std::cout << "b: " << b << std::endl;
 	std::cout << "a: " << a << std::endl;
+	std::cout << "b: " << b << std::endl;
 	
 	Array<std::string> s(10);
 

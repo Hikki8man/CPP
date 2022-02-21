@@ -54,7 +54,7 @@ int	main(int ac, char **av)
 		nb = av[1][0];
 	else
 		nb = atof(av[1]);
-	
+
 	displayChar(nb);
 	diplayInt(nb, av[1]);
 	displayFloat(nb);

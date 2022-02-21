@@ -3,6 +3,8 @@
 
 int main() {
 
+	std::srand(time(NULL));
+
 	Span span(5);
 
 	span.addNumber(6);
@@ -18,7 +20,7 @@ int main() {
 
 	Span s(10000);
 
-	s.generate();
+	s.generate(INT_MAX);
 
 	std::cout << s.shortestSpan() << std::endl;
 	std::cout << s.longestSpan() << std::endl;
@@ -35,7 +37,9 @@ int main() {
 			std::cout << e.what() << std::endl;
 		}
 	}
+
 	std::cout << "--------------------------------------------------" << std::endl;
+
 	{
 		Span sp(1);
 
@@ -47,6 +51,20 @@ int main() {
 			std::cout << e.what() << std::endl;
 		}
 	}
+
+	std::cout << "--------------------------------------------------" << std::endl;
+
+	Span gen(10);
+
+
+	gen.generate(100);
+	
+
+	std::cout << gen.shortestSpan() << std::endl;
+	std::cout << gen.longestSpan() << std::endl;
+
+	// for (std::vector<int>::iterator it = gen.getVector().begin() ; it < gen.getVector().end(); it++)
+	// 	std::cout << "nb: " << *it << std::endl;
 
 	return 0;
 }

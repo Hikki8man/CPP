@@ -21,5 +21,6 @@ int main(void)
 
 	std::cout << "Address of Data d: " << &d << " | " << "Serialize return: " << serialize(&d) << std::endl;
 	std::cout << "Deserialize return: " << deserialize(serialize(&d)) << std::endl;
+
 	return 0;
 }

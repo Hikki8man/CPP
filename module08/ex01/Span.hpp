@@ -5,6 +5,7 @@
 # include <string>
 # include <vector>
 # include <algorithm>
+# include <climits>
 
 class Span
 {
@@ -20,7 +21,10 @@ class Span
 		void	addNumber(int n);
 		uint	shortestSpan();
 		uint	longestSpan();
-		void	generate();
+		void	generate(int range);
+		uint	getSize() const;
+		std::vector<int> getVector() const;
+
 
 		class VectorFullException : public std::exception {
 			public :
@@ -36,6 +40,8 @@ class Span
 		Span();
 		std::vector<int> _v;
 		uint _size;
+		static int _range;
+		static int randomNumber();
 
 };
 
