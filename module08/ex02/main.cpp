@@ -3,56 +3,81 @@
 
 int main() {
 
-	MutantStack<int> m;
-	std::stack<int> s;
-	MutantStack<int> mcpy(m);
-	// std::vector<int> c;
+	{
+		MutantStack<int> mstack;
+		mstack.push(5);
+		mstack.push(17);
+		std::cout << mstack.top() << std::endl << std::endl;
 
+		mstack.pop();
+		std::cout << mstack.size() << std::endl << std::endl;
 
-	m.push(4);
-	m.push(1);
-	m.push(12);
-	m.push(1);
-	
-	// Stack<int>::value_type r;
-	// MutantStack<int>::iterator
+		mstack.push(3);
+		mstack.push(5);
+		mstack.push(737);
+		mstack.push(0);
 
-	// std::cout << "stack: " << s.top() << std::endl;
-	std::cout << "stack: " << m.top() << std::endl;
-
-	
-	// MutantStack<int>::iterator ite = m.end();
-
-	// for (MutantStack<int>::iterator it = m.begin();  it != ite; it++)
-		// std::cout << *it << std::endl;
-
-
-	MutantStack<int>::iterator itee = mcpy.end();
-
-	for (MutantStack<int>::iterator it = mcpy.begin();  it != itee; it++)
+		MutantStack<int>::iterator it = mstack.begin();
+		MutantStack<int>::iterator ite = mstack.end();
+		++it;
+		std::cout << "it + 1: " << *it << std::endl;
+		--it;
+		while (it != ite)
+		{
 		std::cout << *it << std::endl;
+		++it;
+		}
+		std::stack<int> s(mstack);
+	}
 
-	// std::list<int> m;
-	// std::stack<int> s;
-	// // std::vector<int> c;
+	std::cout << "------------------------------------------------------------------" << std::endl;
 
+	{
+		std::list<int> l;
+		l.push_back(5);
+		l.push_back(17);
+		std::cout << l.back() << std::endl << std::endl;
 
-	// m.push_back(4);
-	// m.push_back(1);
-	// m.push_back(12);
-	// m.push_back(1);
-	
-	// // Stack<int>::value_type r;
-	// // MutantStack<int>::iterator
+		l.pop_back();
+		std::cout << l.size() << std::endl << std::endl;
 
-	// // std::cout << "stack: " << s.top() << std::endl;
-	// // std::cout << "stack: " << m.top() << std::endl;
+		l.push_back(3);
+		l.push_back(5);
+		l.push_back(737);
+		l.push_back(0);
 
-	
-	// std::list<int>::iterator ite = m.end();
+		std::list<int>::iterator it = l.begin();
+		std::list<int>::iterator ite = l.end();
+		++it;
+		--it;
+		while (it != ite)
+		{
+		std::cout << *it << std::endl;
+		++it;
+		}
+	}
 
-	// for (std::list<int>::iterator it = m.begin();  it != ite; it++)
-	// 	std::cout << *it << std::endl;
+	std::cout << "------------------------------------------------------------------" << std::endl;
+
+	{
+		MutantStack<int> m;
+
+		for (int i = 1; i <= 10; ++i) {
+			m.push(i);
+		}
+
+		for (MutantStack<int>::iterator it = m.begin(); it != m.end(); ++it)
+			std::cout << *it << std::endl;
+
+	std::cout << std::endl;
+		MutantStack<int>::iterator it = m.begin();
+
+		std::cout << *(it + 4) << std::endl << std::endl;
+		*(it + 4) = 12;
+
+		for (MutantStack<int>::iterator it = m.begin(); it != m.end(); ++it)
+			std::cout << *it << std::endl;
+	}
 
 	return 0;
 }

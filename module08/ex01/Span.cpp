@@ -57,7 +57,9 @@ void	Span::addNumber(int n) {
 uint	Span::shortestSpan() {
 	if (_v.empty() || _v.size() == 1)
 		throw Span::NoSpanException();
+
 	std::vector<int> v(_v);
+
 	std::sort (v.begin(), v.end());
 	uint shorty = abs(*v.begin() - *(v.begin() + 1));
 	for (std::vector<int>::iterator it = v.begin() + 1; it != v.end() - 1; ++it) {

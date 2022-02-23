@@ -27,30 +27,29 @@ int main() {
 
 	std::cout << "--------------------------------------------------" << std::endl;
 
-	{
-		Span sp(0);
+	Span sp(0);
 
-		try {
-			sp.addNumber(23);
-		}
-		catch (std::exception & e) {
-			std::cout << e.what() << std::endl;
-		}
+	try {
+		sp.addNumber(23);
 	}
+	catch (std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+	
 
 	std::cout << "--------------------------------------------------" << std::endl;
 
-	{
-		Span sp(1);
+	
+	Span one(1);
 
-		try {
-			sp.addNumber(23);
-			sp.longestSpan();
-		}
-		catch (std::exception & e) {
-			std::cout << e.what() << std::endl;
-		}
+	try {
+		one.addNumber(23);
+		one.longestSpan();
 	}
+	catch (std::exception & e) {
+		std::cout << e.what() << std::endl;
+	}
+	
 
 	std::cout << "--------------------------------------------------" << std::endl;
 
